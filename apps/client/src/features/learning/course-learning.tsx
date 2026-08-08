@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Badge } from "@/shared/ui/components/badge";
 import { Button } from "@/shared/ui/components/button";
 import { EmptyState, ErrorState, LoadingState } from "../../shared/ui";
@@ -31,16 +30,6 @@ function CourseLearningContent({
 }: CourseLearningContentProps) {
   const session = useLearningSession(courseId);
   const currentPosition = session.currentIndex + 1;
-  const hasProgress = session.currentIndex > 0;
-
-  useEffect(() => {
-    if (!hasProgress) return;
-    const warn = (event: BeforeUnloadEvent) => {
-      event.preventDefault();
-    };
-    window.addEventListener("beforeunload", warn);
-    return () => window.removeEventListener("beforeunload", warn);
-  }, [hasProgress]);
 
   return (
     <div className="flex flex-col gap-6">
