@@ -23,9 +23,20 @@ export const toHistoryItem = (value: unknown) => {
     return null;
   }
 
+  const role =
+    result.data.type === "human"
+      ? ("human" as const)
+      : result.data.type === "ai"
+        ? ("ai" as const)
+        : null;
+  if (!role) {
+    return null;
+  }
+
   return {
     content: getMessageText(result.data.content),
-    role: result.data.type ?? "unknown",
+    role,
+    type: "chat" as const,
     reasoning: result.data.additional_kwargs?.reasoning_content,
   };
 };
