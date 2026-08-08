@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Badge } from "@/shared/ui/components/badge";
 import { Button } from "@/shared/ui/components/button";
 import { EmptyState, ErrorState, LoadingState } from "../../shared/ui";
@@ -30,6 +31,16 @@ function CourseLearningContent({
 }: CourseLearningContentProps) {
   const session = useLearningSession(courseId);
   const currentPosition = session.currentIndex + 1;
+  const hasProgress = session.currentIndex > 0;
+
+  useEffect(() => {
+    if (!hasProgress) return;
+    const warn = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+    };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [hasProgress]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -58,6 +69,11 @@ function CourseLearningContent({
             word={session.currentWord}
           />
           <SpellingGrid cells={session.cells} updateCell={session.updateCell} />
+          {!session.isComplete ? (
+            <p className="text-muted-foreground text-center text-sm">
+              Spell the word correctly to continue.
+            </p>
+          ) : null}
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={session.previous} type="button">
               Previous

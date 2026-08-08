@@ -36,7 +36,10 @@ export function useWordBook() {
       .finally(() => setIsLoading(false));
   }, [api.wordBook, query]);
 
-  useEffect(loadWords, [loadWords]);
+  useEffect(() => {
+    const timer = setTimeout(loadWords, 300);
+    return () => clearTimeout(timer);
+  }, [loadWords]);
 
   return {
     error,

@@ -15,14 +15,12 @@
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {
-    "@fe26/common": "workspace:*",
     "@gsap/react": "^2.1.2",
     "@microsoft/fetch-event-source": "^2.0.1",
     "@swifty.js/sentry": "file:../../../swifty-sentry/sentry",
     "@tailwindcss/vite": "^4.3.0",
     "@tanstack/react-query": "^5.100.10",
     "@tanstack/react-router": "^1.170.4",
-    "axios": "^1.16.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dompurify": "^3.4.4",

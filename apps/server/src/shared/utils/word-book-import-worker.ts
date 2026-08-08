@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { type MessagePort, parentPort } from "node:worker_threads";
-import { disconnectPrisma, prisma } from "../shared/prisma/index.js";
-import { WorkerRequestSchema } from "../shared/utils/word-book-import-worker-protocol.js";
+import { disconnectPrisma, prisma } from "../prisma/index.js";
+import { WorkerRequestSchema } from "./word-book-import-worker-protocol.js";
 
 function getErrorMessage(error: unknown): string {
   return error instanceof Error ? error.message : "Unknown worker error";
