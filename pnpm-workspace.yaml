@@ -9,4 +9,4 @@ allowBuilds:
   prisma: true
 
 minimumReleaseAgeExclude:
-  - "@swifty.js/sentry@0.0.1"
+  - "@swifty.js/sentry@0.0.5"
