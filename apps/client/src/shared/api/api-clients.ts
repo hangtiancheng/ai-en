@@ -24,14 +24,14 @@ export function createApiClients(options: ApiClientsOptions): ApiClients {
   };
   const refresh = createApiClient({
     ...sharedOptions,
-    baseUrl: options.config.serverApiBaseUrl,
+    baseUrl: options.config.baseUrl,
   });
 
   return {
     refresh,
     server: createApiClient({
       ...sharedOptions,
-      baseUrl: options.config.serverApiBaseUrl,
+      baseUrl: options.config.baseUrl,
       getAccessToken: options.session.getAccessToken,
       onAuthExpired: options.onAuthExpired,
       refreshAccessToken: async () => {

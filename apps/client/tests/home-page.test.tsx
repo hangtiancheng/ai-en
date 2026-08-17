@@ -7,7 +7,7 @@ const config: AppConfig = {
   dataProvider: "swr",
   requestTimeoutMs: 50_000,
   routerProvider: "react-router",
-  serverApiBaseUrl: "/api/v1",
+  baseUrl: "/api/v1",
   socketBaseUrl: "http://localhost:3000",
   storeProvider: "zustand",
 };

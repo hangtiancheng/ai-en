@@ -6,7 +6,7 @@ import { createAppRoot } from "../src/app/app-root";
 const baseConfig: Omit<AppConfig, "routerProvider"> = {
   dataProvider: "swr",
   requestTimeoutMs: 50_000,
-  serverApiBaseUrl: "/api/v1",
+  baseUrl: "/api/v1",
   socketBaseUrl: "http://localhost:3000",
   storeProvider: "zustand",
 } as const;

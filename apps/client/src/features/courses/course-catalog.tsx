@@ -27,7 +27,7 @@ export function CourseCatalog() {
           <CourseCard
             course={course}
             key={course.id}
-            serverBaseUrl={config.serverApiBaseUrl}
+            serverBaseUrl={config.baseUrl}
           />
         ))}
       </section>

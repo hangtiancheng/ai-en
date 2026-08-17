@@ -36,7 +36,7 @@ export function SettingsProfile() {
     );
   }
 
-  const avatarUrl = createAvatarUrl(config.serverApiBaseUrl, state.form.avatar);
+  const avatarUrl = createAvatarUrl(config.baseUrl, state.form.avatar);
 
   return (
     <div className="flex flex-col gap-8">

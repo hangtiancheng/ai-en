@@ -5,7 +5,7 @@ const ProviderEnvSchema = z
     ROUTER_PROVIDER: z
       .enum(["react-router", "tanstack"])
       .default("react-router"),
-    SERVER_API_BASE_URL: z.string().min(1).default("/api/v1"),
+    BASE_URL: z.string().min(1).default("/api/v1"),
     STORE_PROVIDER: z.enum(["zustand", "jotai"]).default("zustand"),
     SWR_PROVIDER: z.enum(["swr", "tanstack"]).default("swr"),
     REQUEST_TIMEOUT_MS: z.coerce.number().int().positive().default(50_000),
@@ -15,7 +15,7 @@ const ProviderEnvSchema = z
     dataProvider: value.SWR_PROVIDER,
     requestTimeoutMs: value.REQUEST_TIMEOUT_MS,
     routerProvider: value.ROUTER_PROVIDER,
-    serverApiBaseUrl: value.SERVER_API_BASE_URL,
+    baseUrl: value.BASE_URL,
     socketBaseUrl: value.SOCKET_BASE_URL,
     storeProvider: value.STORE_PROVIDER,
   }));

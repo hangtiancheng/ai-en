@@ -7,7 +7,7 @@ describe("parseProviderEnv", () => {
       dataProvider: "swr",
       requestTimeoutMs: 50_000,
       routerProvider: "react-router",
-      serverApiBaseUrl: "/api/v1",
+      baseUrl: "/api/v1",
       socketBaseUrl: "http://localhost:3000",
       storeProvider: "zustand",
     });
@@ -18,7 +18,7 @@ describe("parseProviderEnv", () => {
       parseProviderEnv({
         REQUEST_TIMEOUT_MS: "1000",
         ROUTER_PROVIDER: "tanstack",
-        SERVER_API_BASE_URL: "/custom-server",
+        BASE_URL: "/custom-server",
         SOCKET_BASE_URL: "http://socket.example",
         STORE_PROVIDER: "jotai",
         SWR_PROVIDER: "tanstack",
@@ -27,7 +27,7 @@ describe("parseProviderEnv", () => {
       dataProvider: "tanstack",
       requestTimeoutMs: 1000,
       routerProvider: "tanstack",
-      serverApiBaseUrl: "/custom-server",
+      baseUrl: "/custom-server",
       socketBaseUrl: "http://socket.example",
       storeProvider: "jotai",
     });
