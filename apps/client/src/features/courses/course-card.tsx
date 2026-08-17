@@ -60,11 +60,9 @@ export function CourseCard({ course, serverBaseUrl }: CourseCardProps) {
           </div>
         </CardContent>
         <CardFooter>
-          <Button asChild className="w-full">
-            <a href={learnUrl}>
-              <BookOpen aria-hidden="true" />
-              Start learning
-            </a>
+          <Button className="w-full" render={<a href={learnUrl} />}>
+            <BookOpen aria-hidden="true" />
+            Start learning
           </Button>
         </CardFooter>
       </Card>

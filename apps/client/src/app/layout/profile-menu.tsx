@@ -21,19 +21,11 @@ export function ProfileMenu() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger
-        className="focus-visible:ring-ring/50 flex items-center gap-2 rounded-full outline-none focus-visible:ring-2"
-        asChild
-      >
-        <button
-          className="hover:bg-accent flex items-center gap-2 rounded-full p-1 transition-colors"
-          type="button"
-        >
-          <UserAvatar avatarUrl={user?.avatar ?? undefined} name={name} />
-          <span className="hidden max-w-28 truncate text-sm font-bold md:inline">
-            {name}
-          </span>
-        </button>
+      <DropdownMenuTrigger className="focus-visible:ring-ring/50 hover:bg-accent flex items-center gap-2 rounded-full p-1 transition-colors outline-none focus-visible:ring-2">
+        <UserAvatar avatarUrl={user?.avatar ?? undefined} name={name} />
+        <span className="hidden max-w-28 truncate text-sm font-bold md:inline">
+          {name}
+        </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-80 p-4">
         <div className="flex flex-col gap-4">
@@ -68,11 +60,13 @@ export function ProfileMenu() {
             {theme === "dark" ? "Light mode" : "Dark mode"}
           </DropdownMenuItem>
           <div className="grid grid-cols-2 gap-2">
-            <Button asChild size="sm" variant="outline">
-              <a href="/setting/index">
-                <Settings aria-hidden="true" />
-                Profile
-              </a>
+            <Button
+              render={<a href="/setting/index" />}
+              size="sm"
+              variant="outline"
+            >
+              <Settings aria-hidden="true" />
+              Profile
             </Button>
             <Button
               onClick={session.logout}

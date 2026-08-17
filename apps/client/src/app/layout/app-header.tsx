@@ -19,10 +19,11 @@ export function AppHeader({ activePath }: AppHeaderProps) {
     <header className="bg-background/70 sticky top-0 z-20 [mask-image:linear-gradient(to_bottom,black_calc(100%-1px),transparent)] backdrop-blur-xl backdrop-saturate-150">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2">
         <div className="flex items-center gap-3">
-          <Button asChild className="size-10 rounded-lg p-0 text-lg font-black">
-            <a href="/">
-              <span>E</span>
-            </a>
+          <Button
+            className="size-10 rounded-lg p-0 text-lg font-black"
+            render={<a href="/" />}
+          >
+            <span>E</span>
           </Button>
           <span className="font-display hidden text-xl font-black tracking-tight md:inline">
             fe260228

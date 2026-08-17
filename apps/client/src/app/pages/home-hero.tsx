@@ -30,11 +30,9 @@ export function HomeHero({ isSignedIn, openAuth }: HomeHeroProps) {
           </div>
           <CardContent className="home-hero-cta flex gap-3 p-0">
             {isSignedIn ? (
-              <Button asChild>
-                <a href="/chat/index">
-                  Continue practice
-                  <ArrowRight aria-hidden="true" />
-                </a>
+              <Button render={<a href="/chat/index" />}>
+                Continue practice
+                <ArrowRight aria-hidden="true" />
               </Button>
             ) : (
               <Button onClick={openAuth} type="button">
@@ -42,11 +40,9 @@ export function HomeHero({ isSignedIn, openAuth }: HomeHeroProps) {
                 <ArrowRight aria-hidden="true" />
               </Button>
             )}
-            <Button asChild variant="outline">
-              <a href="/courses/index">
-                <BookOpen aria-hidden="true" />
-                View courses
-              </a>
+            <Button render={<a href="/courses/index" />} variant="outline">
+              <BookOpen aria-hidden="true" />
+              View courses
             </Button>
           </CardContent>
         </CardHeader>

@@ -38,17 +38,15 @@ export function AvatarCard({ avatarUrl, name, uploadAvatar }: AvatarCardProps) {
                 {fallback}
               </AvatarFallback>
             </Avatar>
-            <Button asChild>
-              <label>
-                <Camera aria-hidden="true" />
-                Select avatar
-                <input
-                  accept="image/*"
-                  className="hidden"
-                  onChange={uploadAvatar}
-                  type="file"
-                />
-              </label>
+            <Button render={<label />}>
+              <Camera aria-hidden="true" />
+              Select avatar
+              <input
+                accept="image/*"
+                className="hidden"
+                onChange={uploadAvatar}
+                type="file"
+              />
             </Button>
           </div>
           <p className="text-muted-foreground text-xs">

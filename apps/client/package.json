@@ -15,6 +15,7 @@
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {
+    "@base-ui/react": "^1.7.0",
     "@gsap/react": "^2.1.2",
     "@microsoft/fetch-event-source": "^2.0.1",
     "@swifty.js/sentry": "^0.0.5",
@@ -29,7 +30,6 @@
     "lucide-react": "^1.16.0",
     "marked": "^18.0.3",
     "motion": "^12.42.2",
-    "radix-ui": "^1.6.4",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router": "^7.15.1",
