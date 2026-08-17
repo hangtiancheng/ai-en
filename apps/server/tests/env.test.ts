@@ -81,7 +81,7 @@ describe("environment validation", () => {
     });
 
     expect(env.OLLAMA_MODEL).toBe("qwen3.5");
-    expect(env.OLLAMA_REASONER_MODEL).toBe("deepseek-r1");
+    expect(env.OLLAMA_REASONING_MODEL).toBe("deepseek-r1");
   });
 
   test("rejects unsupported AI providers", () => {

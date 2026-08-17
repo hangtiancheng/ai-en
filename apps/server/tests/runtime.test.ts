@@ -15,11 +15,11 @@ const createRuntimeEnv = (provider: "openai" | "ollama") =>
     JWT_SECRET: "012345abcdefghijklmnopqrstuvwxyz",
     OPENAI_BASE_URL: "https://api.openai.com/v1",
     OPENAI_API_KEY: "openai-key",
-    OPENAI_API_MODEL: "openai-chat",
-    OPENAI_REASONER_API_MODEL: "openai-reasoner",
+    OPENAI_MODEL: "openai-chat",
+    OPENAI_REASONING_MODEL: "openai-reasoner",
     OLLAMA_BASE_URL: "http://127.0.0.1:11434",
     OLLAMA_MODEL: "qwen3.5",
-    OLLAMA_REASONER_MODEL: "deepseek-r1",
+    OLLAMA_REASONING_MODEL: "deepseek-r1",
   });
 
 describe("AI runtime provider selection", () => {
@@ -50,7 +50,7 @@ describe("AI runtime provider selection", () => {
       AI_PROVIDER: "ollama",
       JWT_SECRET: "012345abcdefghijklmnopqrstuvwxyz",
       OLLAMA_MODEL: "qwen3.5",
-      OLLAMA_REASONER_MODEL: "",
+      OLLAMA_REASONING_MODEL: "",
     });
 
     expect(selectOllamaModel(env, true)).toBe("deepseek-r1");

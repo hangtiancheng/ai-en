@@ -20,11 +20,11 @@ type AiRuntimeEnv = Pick<
   | "AI_PROVIDER"
   | "OPENAI_API_KEY"
   | "OPENAI_BASE_URL"
-  | "OPENAI_API_MODEL"
-  | "OPENAI_REASONER_API_MODEL"
+  | "OPENAI_MODEL"
+  | "OPENAI_REASONING_MODEL"
   | "OLLAMA_BASE_URL"
   | "OLLAMA_MODEL"
-  | "OLLAMA_REASONER_MODEL"
+  | "OLLAMA_REASONING_MODEL"
 >;
 
 type AiAgentTools = NonNullable<CreateAgentParams["tools"]>;
@@ -32,7 +32,7 @@ type AiAgentTools = NonNullable<CreateAgentParams["tools"]>;
 export const createOpenAIInstance = (config: AiRuntimeEnv = env) =>
   new ChatOpenAI({
     apiKey: config.OPENAI_API_KEY,
-    model: config.OPENAI_API_MODEL,
+    model: config.OPENAI_MODEL,
     temperature: 1.3,
     maxTokens: 4396,
     streaming: true,
@@ -41,15 +41,15 @@ export const createOpenAIInstance = (config: AiRuntimeEnv = env) =>
 export const createOpenAIReasoner = (config: AiRuntimeEnv = env) =>
   new ChatOpenAI({
     apiKey: config.OPENAI_API_KEY,
-    model: config.OPENAI_REASONER_API_MODEL,
+    model: config.OPENAI_REASONING_MODEL,
     temperature: 1.3,
     maxTokens: 18000,
     streaming: true,
   });
 
 export const selectOllamaModel = (config: AiRuntimeEnv, deepThink = false) =>
-  deepThink && config.OLLAMA_REASONER_MODEL.length > 0
-    ? config.OLLAMA_REASONER_MODEL
+  deepThink && config.OLLAMA_REASONING_MODEL.length > 0
+    ? config.OLLAMA_REASONING_MODEL
     : config.OLLAMA_MODEL;
 
 export const createOllamaInstance = (
@@ -91,7 +91,7 @@ export const selectAgentModelId = (
   }
 
   return `openai:${
-    deepThink ? config.OPENAI_REASONER_API_MODEL : config.OPENAI_API_MODEL
+    deepThink ? config.OPENAI_REASONING_MODEL : config.OPENAI_MODEL
   }`;
 };
 

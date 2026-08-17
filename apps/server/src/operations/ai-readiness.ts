@@ -15,7 +15,7 @@ type AiReadinessEnv = Pick<
   | "OPENAI_BASE_URL"
   | "OLLAMA_BASE_URL"
   | "OLLAMA_MODEL"
-  | "OLLAMA_REASONER_MODEL"
+  | "OLLAMA_REASONING_MODEL"
 >;
 
 interface AiReadinessOptions {
@@ -57,7 +57,7 @@ export const createAiConfigCheck =
         baseUrl: config.OLLAMA_BASE_URL,
         chatModel: config.OLLAMA_MODEL,
         ...(options.fetchImpl ? { fetchImpl: options.fetchImpl } : {}),
-        reasonerModel: config.OLLAMA_REASONER_MODEL,
+        reasonerModel: config.OLLAMA_REASONING_MODEL,
       });
 
       if (!result.ok) {
